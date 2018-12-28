@@ -1,4 +1,4 @@
-# AntiSpam Discord Bot
+# AutoMod Discord Bot
 This bot will handle miscellaeous moderation functions including an antispam filter - users who spam will be banned! It currently uses [Discord Anti-spam](https://github.com/Michael-J-Scofield/discord-anti-spam) code.
 
 To use, rename `config-TEMPLATE.json` to `config.json` and replace all values with the corect information for your bot/server. Then run the bot with `node bot.js` or `forever start bot.js` (to keep it running perpetually)
