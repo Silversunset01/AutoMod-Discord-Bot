@@ -1,3 +1,5 @@
+const config = require("../config.json");
+
 exports.run = (client, message) => {
     //ignore bot messages
     if (message.author.bot) return;
@@ -9,7 +11,7 @@ exports.run = (client, message) => {
     };
 
     //chat censoring
-    var censorList = ["nigga", "nigger"];
+    var censorList = config.censoredWords;
     var myMsg = message.content;
     for (c in censorList) {
         if (myMsg.includes(censorList[c])){

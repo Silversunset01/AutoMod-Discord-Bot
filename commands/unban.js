@@ -1,5 +1,6 @@
 exports.run = (client, msg, args, content, cooldown, command, Discord, config, request) => {
     //variables
+    var unbanChannel = config.banLogChannel;
     var unbanUser = args[0];
     var unbanReason = args.splice(1, args.length - 1).join(" ");
     var unbanTime = new Date().toLocaleString("en-US", {timeZone: "America/New_York", timeZoneName: "short", weekday: "short", month: "long", day: "2-digit", year: "numeric", hour: '2-digit', minute:'2-digit'});
@@ -11,7 +12,7 @@ exports.run = (client, msg, args, content, cooldown, command, Discord, config, r
     } else {
         //log to ban-logs channel
         var embed = new Discord.RichEmbed()
-            .setColor(0x992d22)
+            .setColor(0x008000)
             .setTimestamp()
             .setTitle(`⚖ Someone has been unbanned ⚖`)
             .setDescription(`
@@ -20,7 +21,7 @@ exports.run = (client, msg, args, content, cooldown, command, Discord, config, r
 **Reason:** ${unbanReason}
 **When:** ${unbanTime}
             `);
-        msg.guild.channels.find("name","ban-logs").send({embed}).catch(console.error);
+        msg.guild.channels.find("id",unbanChannel).send({embed}).catch(console.error);
 
         //ban mentioned user
         msg.guild.unban(unbanUser)

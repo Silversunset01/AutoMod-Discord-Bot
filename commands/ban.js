@@ -1,5 +1,6 @@
 exports.run = (client, msg, args, content, cooldown, command, Discord, config, request) => {
     //variables
+    var banChannel = config.banLogChannel;
     var banUser = msg.mentions.users.first();
     var banReason = args.splice(1, args.length - 1).join(" ");
     var banTime = new Date().toLocaleString("en-US", {timeZone: "America/New_York", timeZoneName: "short", weekday: "short", month: "long", day: "2-digit", year: "numeric", hour: '2-digit', minute:'2-digit'});
@@ -22,7 +23,7 @@ exports.run = (client, msg, args, content, cooldown, command, Discord, config, r
 **Reason:** ${banReason}
 **When:** ${banTime}
             `);
-            msg.guild.channels.find("name","ban-logs").send({embed}).catch(console.error);
+            msg.guild.channels.find("id",`${banChannel}`).send({embed}).catch(console.error);
 
         //ban mentioned user
         msg.guild.ban(banUser)

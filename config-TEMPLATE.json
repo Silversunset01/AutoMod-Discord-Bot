@@ -1,5 +1,21 @@
 {
-	"token": "bot token here",
+	"token": "bot-token here",
 	"prefix": ".",
-	"owner": "bot owner id here",
+	"owner": "owner id here",
+	"mainguildID": "guild id here",
+	"errorLogChannel": "channel id here",
+	"banLogChannel": "channel id here",
+	"joinLogChannel": "channel id here",
+	"deleteLogChannel": "channel id here",
+	"censoredWords": ["nigga", "nigger"],
+	"warnBuffer": "5", 
+	"maxBuffer": "10",
+	"interval": "1000",
+	"warningMessage": "stop spamming or you will be banned.",
+	"banMessage": "has been banned for spamming.",
+	"maxDuplicatesWarning": "7",
+	"maxDuplicatesBan": "10",
+	"deleteMessagesAfterBanForPastDays": "7",
+	"exemptRoles": ["Admin", "Moderator"],
+	"exemptUsers": ["user#0001", "user#0002"]
 }

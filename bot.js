@@ -11,16 +11,17 @@ let cooldown = new Set();
 const antispam = require("discord-anti-spam");
  
 antispam(client, {
-  warnBuffer: 5, //Maximum amount of messages allowed to send in the interval time before getting warned.
-  maxBuffer: 10, // Maximum amount of messages allowed to send in the interval time before getting banned.
-  interval: 1000, // Amount of time in ms users can send a maximum of the maxBuffer variable before getting banned.
-  warningMessage: "stop spamming or you will be banned.", // Warning message send to the user indicating they are going to fast.
-  banMessage: "has been banned for spamming.", // Ban message, always tags the banned user in front of it.
-  maxDuplicatesWarning: 7,// Maximum amount of duplicate messages a user can send in a timespan before getting warned
-  maxDuplicatesBan: 10, // Maximum amount of duplicate messages a user can send in a timespan before getting banned
-  deleteMessagesAfterBanForPastDays: 7, // Delete the spammed messages after banning for the past x days.
-  exemptRoles: ["Admin", "Moderator"], // The names of the roles which should not be spam-filtered
-  exemptUsers: ["Silversunset#9967", "TheRandomnatrix#8857"] // The Discord tags of the users who should not be spam-filtered
+  warnBuffer: config.warnBuffer, 
+  maxBuffer: config.warnBuffer,
+  interval: config.interval, 
+  warningMessage: config.warningMessage, 
+  banMessage: config.banMessage, 
+  maxDuplicatesWarning: config.maxDuplicatesWarning,
+  maxDuplicatesWarning: config.maxDuplicatesWarning,
+  maxDuplicatesBan: config.maxDuplicatesBan, 
+  deleteMessagesAfterBanForPastDays: parseInt(config.deleteMessagesAfterBanForPastDays), 
+  exemptRoles: config.exemptRoles, 
+  exemptUsers: config.exemptUsers 
 });
 
 fs.readdir("./events/", (err, files) => {
@@ -31,6 +32,18 @@ fs.readdir("./events/", (err, files) => {
     client.on(eventName, (...args) => eventFunction.run(client, ...args));
   });
 });
+
+client.on("error", (e) => {
+    console.error(e);
+    client.channels.find("id", config.errorLogChannel).send("**Error:** ```" + e + "```");
+  }
+);
+
+client.on("warn", (e) => {
+    console.warn(e);
+    client.channels.find("id", config.errorLogChannel).send("**Warning:** ```" + e + "```");
+  }
+);
 
 client.on("message", msg => {
   if (msg.author.bot) return;

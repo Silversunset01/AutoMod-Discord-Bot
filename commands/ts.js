@@ -1,4 +1,6 @@
-exports.run = (client, msg, args, content, cooldown, command, Discord, config, request) => {
+const config = require("../config.json");
+
+exports.run = (client, msg, args, content, cooldown, command, Discord, request) => {
     if (msg.author.id !== config.owner) {
         msg.channel.send("I'm sorry, only my owner can run this command.").catch(console.error);
     } else {
