@@ -47,7 +47,7 @@ exports.run = (client, msg, args, content, cooldown, command, Discord, config, r
             .setColor(0x008000)
             .setTimestamp()
             .setThumbnail(UsrLookup.user.avatarURL)
-            .setFooter("!myinfo")
+            .setFooter(".myinfo")
             .addField("**User Info**",`
 **Tag: ** ${UsrLookup.user.tag}
 **Nickname: ** ${UsrLookup.displayName}

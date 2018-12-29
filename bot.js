@@ -11,6 +11,7 @@ let cooldown = new Set();
 const antispam = require("discord-anti-spam");
  
 antispam(client, {
+  logChannel: config.banLogChannel,
   warnBuffer: config.warnBuffer, 
   maxBuffer: config.warnBuffer,
   interval: config.interval, 

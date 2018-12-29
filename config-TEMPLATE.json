@@ -7,7 +7,7 @@
 	"banLogChannel": "channel id here",
 	"joinLogChannel": "channel id here",
 	"deleteLogChannel": "channel id here",
-	"censoredWords": ["nigga", "nigger"],
+	"censoredWords": ["nigga", "nigger", "https://discord.gg/", "https://www.youtube.com/"],
 	"warnBuffer": "5", 
 	"maxBuffer": "10",
 	"interval": "1000",
