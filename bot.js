@@ -18,7 +18,7 @@ antispam(client, {
   warningMessage: config.warningMessage, 
   banMessage: config.banMessage, 
   maxDuplicatesWarning: config.maxDuplicatesWarning,
-  maxDuplicatesWarning: config.maxDuplicatesWarning,
+  maxDuplicatesKick: config.maxDuplicatesKick,
   maxDuplicatesBan: config.maxDuplicatesBan, 
   deleteMessagesAfterBanForPastDays: parseInt(config.deleteMessagesAfterBanForPastDays), 
   exemptRoles: config.exemptRoles, 

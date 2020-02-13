@@ -14,6 +14,7 @@
 	"warningMessage": "stop spamming or you will be banned.",
 	"banMessage": "has been banned for spamming.",
 	"maxDuplicatesWarning": "7",
+	"maxDuplicatesKick": "7",
 	"maxDuplicatesBan": "10",
 	"deleteMessagesAfterBanForPastDays": "7",
 	"exemptRoles": ["Admin", "Moderator"],
